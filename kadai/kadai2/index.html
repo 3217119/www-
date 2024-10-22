@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配列の計算ページ</title>
+    <style>
+        /* テーブルのスタイル */
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center">
+        <h1>配列の掛け算結果</h1>
+
+        <table>
+            <tr>
+                <th>配列 a</th>
+                <th>配列 b</th>
+                <th>掛け算結果</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>10</td>
+                <td><span id="result0">-</span></td>
+                <td><button onclick="multiply_0()">計算</button></td>
+            </tr>
+            <tr>
+                <td>980</td>
+                <td>16</td>
+                <td><span id="result1">-</span></td>
+                <td><button onclick="multiply_1()">計算</button></td>
+            </tr>
+            <tr>
+                <td>1200</td>
+                <td>8</td>
+                <td><span id="result2">-</span></td>
+                <td><button onclick="multiply_2()">計算</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // 配列aとbの値を設定
+        let a = [500, 980, 1200];
+        let b = [10, 16, 8];
+
+        // 1行目の掛け算結果を表示する関数
+        function multiply_0() {
+            let answer = a[0] * b[0];
+            document.getElementById("result0").textContent = answer;
+            alert("500 * 10 = " + answer);
+        }
+
+        // 2行目の掛け算結果を表示する関数
+        function multiply_1() {
+            let answer = a[1] * b[1];
+            document.getElementById("result1").textContent = answer;
+            alert("980 * 16 = " + answer);
+        }
+
+        // 3行目の掛け算結果を表示する関数
+        function multiply_2() {
+            let answer = a[2] * b[2];
+            document.getElementById("result2").textContent = answer;
+            alert("1200 * 8 = " + answer);
+        }
+    </script>
+
+</body>
+</html>
