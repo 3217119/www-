@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>写真一覧表示</title>
+<style>
+       #photoContainer {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 10px;
+           margin-top: 20px;
+       }
+       .photo {
+           width: 150px;
+           height: 100px;
+           object-fit: cover;
+       }
+       #showPhotosButton {
+           padding: 10px 20px;
+           font-size: 16px;
+           cursor: pointer;
+       }
+</style>
+</head>
+<body>
+<h1>写真を表示</h1>
+<button id="showPhotosButton" onclick="showPhotos()">写真を表示する</button>
+<div id="photoContainer"></div>
+<script>
+   function showPhotos() {
+       const photoContainer = document.getElementById('photoContainer');
+       const photos = [
+           'https://via.placeholder.com/150',  // Placeholder画像を使用しています
+           'https://via.placeholder.com/150',
+           'https://via.placeholder.com/150',
+           'https://via.placeholder.com/150',
+           'https://via.placeholder.com/150',
+           'https://via.placeholder.com/150',
+           'https://via.placeholder.com/150',
+           'https://via.placeholder.com/150'
+       ];
+       // 写真を表示
+       photos.forEach(url => {
+           const img = document.createElement('img');
+           img.src = url;
+           img.classList.add('photo');
+           photoContainer.appendChild(img);
+       });
+       // ボタンを削除
+       const button = document.getElementById('showPhotosButton');
+       button.remove();
+   }
+</script>
+</body>
+</html>
+has context menu
