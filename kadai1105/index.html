@@ -1,27 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国旗切り替え</title>
-    <style>
-           #flag {
-               width: 200px;
-               height: auto;
-           }
-    </style>
-    </head>
-    <body>
-    <h1>国旗を表示する</h1>
-    <img id="flag" src="flag_IDN.png" alt="国旗">
-    <button onclick="changeFlag('IDN')">インドネシア</button>
-    <button onclick="changeFlag('CHN')">中国</button>
-    <button onclick="changeFlag('USA')">アメリカ</button>
-    <button onclick="changeFlag('IND')">インド</button>
-    <script>
-           function changeFlag(countryCode) {
-               document.getElementById('flag').src = `flag_${countryCode}.png`;
-           }
-    </script>
-    </body>
-    </html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国名を国旗画像に変更</title>
+<style>
+       .country {
+           font-size: 24px;
+           cursor: pointer;
+           padding: 10px;
+           display: inline-block;
+           border: 1px solid #ddd;
+           margin: 5px;
+           text-align: center;
+           width: 120px;
+       }
+       .flag {
+           width: 120px;
+           height: 80px;
+       }
+</style>
+</head>
+<body>
+<h1>国名をクリックすると国旗が表示されます</h1>
+<div class="country" onclick="showFlag(this, 'indonesia')">Indonesia</div>
+<div class="country" onclick="showFlag(this, 'china')">China</div>
+<div class="country" onclick="showFlag(this, 'usa')">USA</div>
+<div class="country" onclick="showFlag(this, 'india')">India</div>
+<script>
+   function showFlag(element, country) {
+       const flagUrls = {
+           indonesia: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg',
+           china: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
+           usa: 'https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg',
+           india: 'https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg'
+       };
+       if (flagUrls[country]) {
+           // 国旗画像に切り替える
+           element.innerHTML = `<img src="${flagUrls[country]}" class="flag" alt="${country} flag">`;
+       }
+   }
+</script>
+</body>
+</html>
